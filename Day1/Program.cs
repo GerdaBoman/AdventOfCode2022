@@ -53,6 +53,15 @@ public class Program
             //Print the top elfs information from the list
             Console.WriteLine($" The {sortedList[0].Name} carries the most calories. The total of {sortedList[0].TotalCalories} cal.");
 
+            //========================== Part two ==============================================
+
+            int top3TotalCalories = 0;
+            for (int i = 0; i <= 2; i++)
+            {
+                top3TotalCalories += sortedList[i].TotalCalories;
+            }
+
+            Console.WriteLine($" The top 3 elfs have a total of {top3TotalCalories} calories.");
 
 
 
