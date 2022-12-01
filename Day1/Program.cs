@@ -55,6 +55,7 @@ public class Program
 
             //========================== Part two ==============================================
 
+            //Taking the top 3 elfs calories of the list and adding it to top3TotalCalories
             int top3TotalCalories = 0;
             for (int i = 0; i <= 2; i++)
             {
