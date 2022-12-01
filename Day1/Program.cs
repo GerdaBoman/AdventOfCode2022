@@ -1,15 +1,19 @@
-﻿public class Program
+﻿using Humanizer;
+
+public class Program
 {
 
     private static void Main(string[] args)
     {
-        List<Elf> allEfls = new();
+        //Created List of All Elfs that are on the trip
+        List<Elf> allElfs = new();
 
+        //Readling all elf input from .txt file
         using (StreamReader file = new StreamReader(@"elfInput.txt"))
         {
             int totalCalories = 0;
             int item = 0;
-            int elfNameinINT = 1;
+            int elfNameInINTForm = 1;
             string line;
 
 
@@ -18,9 +22,9 @@
                 totalCalories = 0;
                 Elf elf = new Elf();
 
-
                 line = file.ReadLine();
 
+                //Checks if the line is null or contains nothing like ""
                 while (!string.IsNullOrWhiteSpace(line))
                 {
 
@@ -29,12 +33,13 @@
 
                     line = file.ReadLine();
 
+                    //If line contains nothing - add info to Elf object
                     if (string.IsNullOrWhiteSpace(line))
                     {
-                        elf.Name = elfNameinINT;
+                        elf.Name = $"{elfNameInINTForm.ToOrdinalWords()} elf";
                         elf.TotalCalories = totalCalories;
-                        elfNameinINT++;
-                        allEfls.Add(elf);
+                        elfNameInINTForm++;
+                        allElfs.Add(elf);
                     }
 
                 }
@@ -42,9 +47,13 @@
             }
 
 
+            //Sort the list in desending order by total calories they carry
+            var sortedList = allElfs.OrderByDescending(x => x.TotalCalories).ToList();
 
-            var sortedList = allEfls.OrderByDescending(x => x.TotalCalories).ToList();
-            Console.WriteLine(sortedList[0].TotalCalories);
+            //Print the top elfs information from the list
+            Console.WriteLine($" The {sortedList[0].Name} carries the most calories. The total of {sortedList[0].TotalCalories} cal.");
+
+
 
 
         }
@@ -52,7 +61,7 @@
 
     public class Elf
     {
-        public int Name { get; set; }
+        public string Name { get; set; }
         public int TotalCalories { get; set; }
     }
 }
