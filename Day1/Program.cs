@@ -6,7 +6,7 @@ public class Program
     private static void Main(string[] args)
     {
         //Created List of All Elfs that are on the trip
-        List<Elf> allElfs = new();
+        List<Elf> allElves = new();
 
         //Readling all elf input from .txt file
         using (StreamReader file = new StreamReader(@"elfInput.txt"))
@@ -39,7 +39,7 @@ public class Program
                         elf.Name = $"{elfNameInINTForm.ToOrdinalWords()} elf";
                         elf.TotalCalories = totalCalories;
                         elfNameInINTForm++;
-                        allElfs.Add(elf);
+                        allElves.Add(elf);
                     }
 
                 }
@@ -48,7 +48,7 @@ public class Program
 
 
             //Sort the list in desending order by total calories they carry
-            var sortedList = allElfs.OrderByDescending(x => x.TotalCalories).ToList();
+            var sortedList = allElves.OrderByDescending(x => x.TotalCalories).ToList();
 
             //Print the top elfs information from the list
             Console.WriteLine($" The {sortedList[0].Name} carries the most calories. The total of {sortedList[0].TotalCalories} cal.");
