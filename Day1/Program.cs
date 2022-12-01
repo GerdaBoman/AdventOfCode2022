@@ -5,10 +5,10 @@ public class Program
 
     private static void Main(string[] args)
     {
-        //Created List of All Elfs that are on the trip
+        //Created List of All Elves that are on the trip
         List<Elf> allElves = new();
 
-        //Readling all elf input from .txt file
+        //Readling all elves input from .txt file
         using (StreamReader file = new StreamReader(@"elfInput.txt"))
         {
             int totalCalories = 0;
@@ -50,12 +50,12 @@ public class Program
             //Sort the list in desending order by total calories they carry
             var sortedList = allElves.OrderByDescending(x => x.TotalCalories).ToList();
 
-            //Print the top elfs information from the list
+            //Print the top elves information from the list
             Console.WriteLine($" The {sortedList[0].Name} carries the most calories. The total of {sortedList[0].TotalCalories} cal.");
 
             //========================== Part two ==============================================
 
-            //Taking the top 3 elfs calories of the list and adding it to top3TotalCalories
+            //Taking the top 3 elves calories of the list and adding it to top3TotalCalories
             int top3TotalCalories = 0;
             for (int i = 0; i <= 2; i++)
             {
