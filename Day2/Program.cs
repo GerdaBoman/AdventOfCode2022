@@ -10,6 +10,8 @@
 
             string ln;
 
+            // X to lose, Y to Draw , Z to Win
+
             while (file.EndOfStream == false)
             {
                 ln = file.ReadLine();
@@ -103,6 +105,9 @@
 
     //////////////////////////Part One///////////////////////
     /*
+     * 
+     * Presuming that X = Rock, Y = Papper, Z = Scissors
+     * 
             while (file.EndOfStream == false)
             {
                 ln = file.ReadLine();
